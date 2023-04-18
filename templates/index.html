@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}
+    خانه
+{% endblock %}
+{% block head %}
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+{% endblock %}
+{% block content %}
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel({
+                items: 1,
+            });
+        });
+
+    </script>
+    {% for user in users %}
+        {% if user.avatar %}
+            <div class="card my-3">
+
+                <div class="card-body">
+                    <h5 class="card-title">{{ user.resume.name }}</h5>
+                    <a href="{% url 'ShowSingle' user.username %}" class="btn btn-primary">مشاهده رزومه</a>
+                </div>
+                <div class="row">
+                    <img src="{{ user.resume.image_1.url }}" class=" col-4" height="400px" width="400px" alt="avatar">
+                    <img src="{{ user.resume.image_2.url }}" class=" col-4" height="400px" width="400px" alt="avatar">
+                    <img src="{{ user.resume.image_3.url }}" class=" col-4" height="400px" width="400px" alt="avatar">
+
+                </div>
+
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

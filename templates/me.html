@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    <script src="https://cdn.ckeditor.com/ckeditor5/37.0.1/classic/ckeditor.js"></script>
+{% endblock %}
+{% block title %}
+    {{ request.user.username }}
+{% endblock %}
+{% block content %}
+    <form method="post" enctype="multipart/form-data" class="justify-content-center mt-5"> {% csrf_token %}
+        <label for="name" class="form-label mt-4 fs-3">نام و نام خانوادگی</label>
+        <input type="text" name="name" class="form-control" id="name" value="{{ resume.name }}">
+        <label for="content" class="form-label mt-4 fs-3">رزومه</label>
+        <textarea name="content" class="form-control" id="content">{{ resume.content }}</textarea>
+        <label for="image_1" class="form-label mt-4 fs-3">تصویر 1</label>
+        <input type="file" name="image_1" class="form-control" id="image_1" value="{{ resume.image_1 }}">
+        <label for="image_2" class="form-label mt-4 fs-3">تصویر 2</label>
+        <input type="file" name="image_2" class="form-control" id="image_2" value="{{ resume.image_2 }}">
+        <label for="image_3" class="form-label mt-4 fs-3">تصویر 3</label>
+        <input type="file" name="image_3" class="form-control" id="image_3" value="{{ resume.image_3 }}">
+        <input type="submit" class="btn btn-primary my-3" value="حمله!">
+    </form>
+    <div class="p-5"></div>
+{% endblock %}

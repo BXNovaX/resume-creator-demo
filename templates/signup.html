@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+ثبت نام
+{% endblock %}
+{% block content %}
+    <div class="row d-flex justify-content-center p-3 rounded-5" style="background-color: rgba(26,68,75,0.1)">
+        <form method="post" enctype="multipart/form-data" class="justify-content-center col-6"> {% csrf_token %}
+            <label for="username" class="form-label mt-4 fs-3">نام کاربری</label>
+            <input type="text" name="username" class="form-control" id="username">
+            <label for="password" class="form-label mt-4 fs-3">رمز عبور</label>
+            <input type="password" name="password" class="form-control" id="password">
+            <label for="confirm_password" class="form-label mt-4 fs-3">تکرار رمز عبور</label>
+            <input type="password" name="confirm_password" class="form-control" id="confirm_password">
+            <label for="password" class="form-label mt-4 fs-3">آواتار</label>
+            <input type="file" name="avatar" class="form-control" id="avatar">
+            <input type="submit" class="btn btn-primary my-3" value="حمله!">
+        </form>
+    </div>
+{% endblock %}

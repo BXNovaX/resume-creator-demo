@@ -16,6 +16,8 @@ class SignUp(View):
         confirm_password = request.POST.get('confirm_password')
         if password == confirm_password:
             user = User(username=username, password=make_password(password))
+            print(request.FILES)
+            user.avatar = request.FILES.get('avatar')
             user.save()
             login(request, user)
             return redirect('GetMe')
