@@ -4,15 +4,23 @@
     {{ request.user.username }}
 {% endblock %}
 {% block content %}
-    <h3>نام و نام خانوادگی:</h3>
-    <p>{{ resume.name }}</p>
-    <h3>رزومه:</h3>
-    <p>{{ resume.content }}</p>
-    <h3>تصاویر:</h3>
-    <div class="row">
-        <img src="{{ user.resume.image_1.url }}" class=" col-4" height="400px" width="400px" alt="avatar">
-        <img src="{{ user.resume.image_2.url }}" class=" col-4" height="400px" width="400px" alt="avatar">
-        <img src="{{ user.resume.image_3.url }}" class=" col-4" height="400px" width="400px" alt="avatar">
-
+    <div class="my-5">
+        <h3>نام و نام خانوادگی:</h3>
+        <p>{{ resume.name }}</p>
     </div>
+    <hr>
+    <div class="my-5">
+        <h3>رزومه:</h3>
+        <p>{{ resume.content }}</p>
+    </div>
+    <hr>
+    <div class="my-5">
+        <h3>تصاویر:</h3>
+        <div class="row mt-3">
+            <img src="{{ resume.image_1.url }}" class="rounded-5 col-4" height="400px" width="400px" alt="Image">
+            <img src="{{ resume.image_2.url }}" class="rounded-5 col-4" height="400px" width="400px" alt="Image">
+            <img src="{{ resume.image_3.url }}" class="rounded-5 col-4" height="400px" width="400px" alt="Image">
+        </div>
+    </div>
+
 {% endblock %}
